@@ -1,7 +1,6 @@
-
-
 library(quantmod)
 library(xgboost)
+library(forecast)
 data = datacollection()
 data=data[complete.cases(data),]
 data1 = data
