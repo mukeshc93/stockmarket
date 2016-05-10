@@ -26,7 +26,7 @@ ml = function(n) {
     return(pred)
 }
 
-pred = (ml(2))
+pred = (ml(8))
 plot(pred, type = "h")
 pred1=as.data.frame(pred)
 act = NULL
