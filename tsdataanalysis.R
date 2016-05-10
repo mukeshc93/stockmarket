@@ -7,7 +7,7 @@ data1 = data
 
 ########Train dataset for model
 ret=data[,21:ncol(data)]
-ret1=(t(apply(t(ret),2,cumsum))[,120])
+ret1=(t(apply(t(ret),2,cumsum))[,ncol(ret1)])
 lm1=matrix(NA,nrow(ret),ncol = 30)
 for(i in 1:nrow(ret))
 {
@@ -32,9 +32,11 @@ train=cbind(ret,data[,c(21,22,139,140)])
 
 ############test dataset for model
 test = datacollection(requiretestdata = T)
+test=test[,-21]
+colnames(test)=c(c(colnames(test[, 1:20]), as.character(paste("return", 1:119, sep = ""))))
 data = test
 ret=data[,21:ncol(data)]
-ret1=(t(apply(t(ret),2,cumsum))[,120])
+ret1=(t(apply(t(ret),2,cumsum))[,ncol(ret1)])
 lm1=matrix(NA,nrow(ret),ncol = 30)
 for(i in 1:nrow(ret))
 {
