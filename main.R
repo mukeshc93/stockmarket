@@ -26,17 +26,17 @@ ml = function(n) {
     return(pred)
 }
 
-pred = as.data.frame(ml(10))
+pred = (ml(2))
 plot(pred, type = "h")
-
+pred1=as.data.frame(pred)
 act = NULL
 
-for (j in 1:nrow(pred)) {
-    act[j] = ifelse(pred[j, ] < 0, 0, 1)
+for (j in 1:nrow(pred1)) {
+    act[j] = ifelse(pred1[j, ] < 0, 0, 1)
 }
 
-upstocks = as.data.frame(cbind(row.names(test[as.logical(act),]),pred[as.logical(act),]))
+upstocks = as.data.frame(cbind(row.names(test[as.logical(act),]),pred1[as.logical(act),]))
 write.csv(upstocks, "upstock.csv")
 
-downstocks = as.data.frame(cbind(row.names(test[!as.logical(act),]),pred[!as.logical(act),]))
+downstocks = as.data.frame(cbind(row.names(test[!as.logical(act),]),pred1[!as.logical(act),]))
 write.csv(downstocks, "downstock.csv")
