@@ -107,7 +107,6 @@ if(requiretestdata==TRUE)
   sums=matrix(rep((sums),50),nrow=50,ncol=2,byrow=T)
   colnames(sums)=c("FII for period","DII for period")
   nret=cbind(sums,ret)
-  #nret=nret[,c(1:20,(ncol(nret)-118):ncol(nret))]    
   colnames(nret) = c(colnames(nret[, 1:20]), as.character(paste("return", 1:120, sep = ""))) ###################
   newret=rbind(nret,newret)
   
